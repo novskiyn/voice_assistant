@@ -12,7 +12,7 @@ class VoiceController:
         self.reminder_controller = ReminderController()
         self.note_controller = NoteController()
         self.alarm_controller = AlarmController()
-        self.weather_controller = WeatherController()
+        self.weather_controller = WeatherController("8ef7299116a6a9503a3ff014b32b9cc2")
         self.coin_flip_controller = CoinFlipController()
 
     def recognize_speech(self):
@@ -32,13 +32,13 @@ class VoiceController:
         elif command.startswith("покажи все напоминания"):
             self.reminder_controller.show_all_reminders()
         elif command.startswith("удали все напоминания"):
-            self.reminder_controller.delete_all_reminders()    
+            self.reminder_controller.delete_all_reminders()
+        elif command.startswith("погода"):
+            self.weather_controller.get_weather(command)        
         elif command.startswith("создай заметку"):
             self.note_controller.create_note(command)
         elif command.startswith("установи будильник"):
             self.alarm_controller.set_alarm(command)
-        elif command.startswith("покажи погоду"):
-            self.weather_controller.get_weather()
         elif command.startswith("подбрось монетку"):
             self.coin_flip_controller.flip_coin()
         else:
