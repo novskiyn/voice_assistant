@@ -1,4 +1,3 @@
-# app/controllers/voice_controller.py
 from app.services.voice_service import VoiceService
 from app.controllers.reminder_controller import ReminderController
 from app.controllers.note_controller import NoteController
@@ -33,12 +32,22 @@ class VoiceController:
             self.reminder_controller.show_all_reminders()
         elif command.startswith("удали все напоминания"):
             self.reminder_controller.delete_all_reminders()
-        elif command.startswith("погода"):
-            self.weather_controller.get_weather(command)        
         elif command.startswith("создай заметку"):
             self.note_controller.create_note(command)
+        elif command.startswith("покажи заметку"):
+            self.note_controller.show_notes(command)
+        elif command.startswith("отредактируй заметку"):
+            self.note_controller.edit_note(command)
+        elif command.startswith("удали заметку"):
+            self.note_controller.delete_note(command)
+        elif command.startswith("удали пункт"):
+            self.note_controller.delete_point(command)
+        elif command.startswith("покажи все заметки"):
+            self.note_controller.show_all_notes()
         elif command.startswith("установи будильник"):
             self.alarm_controller.set_alarm(command)
+        elif command.startswith("погода"):
+            self.weather_controller.get_weather(command)
         elif command.startswith("подбрось монетку"):
             self.coin_flip_controller.flip_coin()
         else:

@@ -1,4 +1,3 @@
-# app/services/reminder_service.py
 from app.models.reminder_model import ReminderModel
 
 class ReminderService:
